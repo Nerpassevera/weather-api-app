@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Display a map on a webpage</title>
-<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-<link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
-<script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
-<link
-  rel="stylesheet"
-  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
-  type="text/css"
-/>
+  <head>
+    <meta charset="utf-8" />
+    <title>Weather forecast</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
+      type="text/css"
+    />
 
-<link href="styles.css" rel="stylesheet">
-</head>
-<body>
-  <div id="forecast-background">
-    <div id="forecast">
-      <div id="geocoder"></div>
-      <h1 id="h1">Loading ...</h1>
-      <div>
-        <div id="labels"></div>
-        <div id="data"></div>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="forecast-background">
+      <div id="forecast">
+        <div id="geocoder"></div>
+        <h1 id="h1">Please, wait! The map is loading ...</h1>
+        <div id="forecast-section">
+          <div id="labels-current" hidden="true">
+            <h3 class="unit">Temperature</h3>
+            <h3 class="unit">Humidity</h3>
+            <h3 class="unit">Precipitation</h3>
+            <h3 class="unit">Clouds</h3>
+            <h3 class="unit">Pressure</h3>
+            <h3 class="unit">Wind</h3>
+            <h3 class="unit">Wind gusts</h3>
+          </div>
+          <div id="data"></div>
+        </div>
+        <button
+          type="button"
+          class="change-page"
+          onclick="window.location.href = '14days.html'"
+        >
+          Go to 14 days forecast
+        </button>
       </div>
     </div>
-  </div>
-<div id="map"></div>
-<script src="script.js" defer></script>
-
-</body>
+    <div id="map"></div>
+    <script src="script.js" defer></script>
+  </body>
 </html>

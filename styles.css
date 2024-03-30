@@ -1,32 +1,115 @@
-body { 
-  margin: 0; 
-  padding: 0; 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, sans-serif;
+  color: DarkSlateGray;
 }
 
-#map { 
-  position: absolute; 
-  width: 100%; 
-  height: 100%; 
-  /* z-index: 0;  */
+#map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 #forecast-background {
-  position: absolute; 
+  position: absolute;
   z-index: 1;
-  background-color: rgb(250, 255, 255, 0.7);
+  background-color: rgb(250, 255, 255, 0.75);
   margin: 20px;
   border-radius: 5px;
-  
 }
 
 #forecast {
   opacity: 100%;
-  /* z-index: 2; */
   margin: 20px;
 }
 
 form {
   font-size: large;
-  /* z-index: 3; */
 }
 
+.change-page {
+  background-color: #ffffff;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
+    transform 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 100%;
+}
+
+.change-page:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow 0.2s;
+}
+
+.change-page:active {
+  background-color: #f7f7f7;
+  border-color: #000000;
+  transform: scale(0.96);
+}
+
+.change-page:disabled {
+  border-color: #dddddd;
+  color: #dddddd;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+#forecast-section {
+  display: flex;
+}
+
+#full-forecast-section {
+  display: flex;
+  padding-top: 30px;
+  grid-gap: 10px;
+}
+
+#labels_full {
+  width: 20%;
+}
+
+#full-data {
+  display: grid;
+  grid-template: repeat(6, 1fr) / repeat(15, 1fr);
+}
+
+.grid-label {
+  margin-right: 20px;
+}
+
+.data-unit {
+  color: #094242;
+  text-shadow: 1px 1px 1px #8bc6c6;
+}
+
+#data {
+  text-align: right;
+}
+
+#labels-current {
+  padding-right: 10px;
+}
+
+.insert-data-here {
+  display: contents;
+  list-style-type: none;
+}
