@@ -129,6 +129,12 @@ function setupMap(center) {
  */
 function errorLocation() {
   setupMap([long, lat]);
+  
+  // Create a link for fetching weather forecast data based on latitude and longitude
+  link = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current=temperature_2m,relative_humidity_2m,is_day,precipitation,cloud_cover,pressure_msl,wind_speed_10m,wind_gusts_10m&forecast_days=1`;
+
+  // Render the forecast data using the latitude, longitude, rendering function, and link
+  renderForecast(lat, long, renderCurrentData, link);
 }
 /**
  * Function to render forecast data based on latitude and longitude coordinates
@@ -224,8 +230,8 @@ function clearForecast() {
  * Calls the renderForecast function to render the forecast data on the webpage.
  */
 function fullForecast() {
-  lat = parseFloat(localStorage.getItem("lat"));
-  long = parseFloat(localStorage.getItem("long"));
+  lat = localStorage.getItem("lat") ? parseFloat(localStorage.getItem("lat")) : lat;
+  long = localStorage.getItem("long") ? parseFloat(localStorage.getItem("long")) : long;
   link = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&hourly=is_day&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,wind_speed_10m_max,wind_gusts_10m_max&forecast_days=14`;
   renderForecast(lat, long, renderFullData, link);
 }
